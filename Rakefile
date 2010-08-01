@@ -5,14 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "send?"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Object#send? similar to Object#try?, but works for nil and with arguments.}
+    gem.description = IO.read('./README.markdown')
+    gem.description.force_encoding 'UTF-8' if gem.description.respond_to? :force_encoding
     gem.email = "kim@burgestrand.se"
     gem.homepage = "http://github.com/Burgestrand/send?"
     gem.authors = ["Kim Burgestrand"]
     gem.rubyforge_project = "send?"
     gem.add_development_dependency "rspec", ">= 1.2.9"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
   Jeweler::RubyforgeTasks.new do |rubyforge|
