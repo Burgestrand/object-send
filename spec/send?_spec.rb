@@ -1,9 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 class TestObject
-  
   def i_exist(*args)
     args
+  end
+  
+  def i_want_blocks(first = nil, &block)
+    yield first
   end
   
   private
@@ -29,5 +32,9 @@ describe "Send?" do
   
   it "should never ever call private methods" do
     TestObject.new.send?(:i_am_private, "whatever").should == nil
+  end
+  
+  it "should accept blocks" do
+    TestObject.new.send?(:i_want_blocks, "hello") { |arg| arg }.should == "hello"
   end
 end
